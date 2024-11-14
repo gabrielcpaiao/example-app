@@ -18,9 +18,3 @@ use App\Http\Controllers\TaskController;
 Route::get('/', function () {
     return view('welcome');
 });
-
-// Route::resource('produtos', ProdutoController::class);
-
-Route::get('/tasks', [TaskController::class, 'index']);
-Route::post('/tasks', [TaskController::class, 'store']);
-Route::patch('/tasks/{task}', [TaskController::class, 'update']);

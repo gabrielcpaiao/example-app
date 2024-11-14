@@ -9,20 +9,26 @@ class TaskController extends Controller
 {
     public function index()
     {
-        $tasks = Task::all();
-        return view('tasks.index', compact('tasks'));
+        return Task::all();
+        // $tasks = Task::all();
+        // return view('tasks.index', compact('tasks'));
     }
 
     public function store(Request $request)
     {
-        $request->validate(['name' => 'required|string|max:255']);
-        Task::create(['name' => $request->name, 'completed' => false]);
-        return redirect('/tasks');
+        // $request->validate(['name' => 'required|string|max:255']);
+        // Task::create(['name' => $request->name, 'completed' => false]);
+        // return redirect('/tasks');
+        $task = Task::create($request->all());
+        return response()->json($task, 201);
     }
 
-    public function update(Request $request, Task $task)
+    public function update(Request $request, $id)
     {
-        $task->update(['completed' => $request->has('completed')]);
-        return redirect('/tasks');
+        // $task->update(['completed' => $request->has('completed')]);
+        // return redirect('/tasks');
+        $task = Task::findOrFail($id);
+        $task->update($request->all());
+        return response()->json($task, 200);
     }
 }
