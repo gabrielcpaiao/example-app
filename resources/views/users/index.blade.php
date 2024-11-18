@@ -1,6 +1,6 @@
 @extends('layout')
 
-@section('content') <!-- Change @extends('content') to @section('content') -->
+@section('content')
 <h1>User List</h1>
 <a href="{{ route('users.create') }}">Add New User</a> <!-- Fix the route for adding a user -->
 

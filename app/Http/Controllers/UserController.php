@@ -11,7 +11,7 @@ class UserController extends Controller
     public function index()
     {
         $Users = User::all();
-        dd($Users);
+        // dd($Users);
         return view('users.index', compact('Users'));
     }
 
