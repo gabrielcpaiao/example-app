@@ -21,8 +21,10 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
+// Route::apiResource -> which is designed for API routes and does not return views
+
 Route::apiResource('produtos', ProdutoController::class);
 
 Route::apiResource('tasks', TaskController::class);
 
-Route::apiResource('users', UserController::class);
+// Route::apiResource('users', UserController::class);

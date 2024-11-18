@@ -10,13 +10,15 @@ class UserController extends Controller
 
     public function index()
     {
-        $users = User::all();
-        return view('users.index', compact('users'));
+        $Users = User::all();
+        dd($Users);
+        return view('users.index', compact('Users'));
     }
 
     public function create()
     {
         return view('users.create');
+        // return "TESTE";
     }
 
     public function store(Request $request)
@@ -36,13 +38,7 @@ class UserController extends Controller
         return redirect()->route('users.index')->with('success', 'User created successfully.');
     }
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(string $id)
-    {
-        //
-    }
+    public function show(string $id) {}
 
     public function edit(User $user)
     {
@@ -53,7 +49,7 @@ class UserController extends Controller
     {
         $validatedData = $request->validate([
             'name' => 'required',
-            'email' => 'required|email|unique:users,email,' .$user->id,
+            'email' => 'required|email|unique:users,email,' . $user->id,
             'password' => 'nullable|min:6',
         ]);
 
@@ -66,7 +62,8 @@ class UserController extends Controller
         return redirect()->route('users.index')->with('success', 'User updated successfully.');
     }
 
-    public function destroy(User $user) {
+    public function destroy(User $user)
+    {
         $user->delete();
         return redirect()->route('user.index')->with('success', 'User deleted successfully.');
     }
