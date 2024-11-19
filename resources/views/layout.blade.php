@@ -15,9 +15,6 @@
     <div class="container">
         @yield('content') <!-- This is where the 'content' section will be injected -->
     </div>
-    <footer>
-        <p>Footer Section</p>
-    </footer>
 
 </body>
 
