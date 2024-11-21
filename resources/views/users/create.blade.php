@@ -3,7 +3,6 @@
 @section('content')
 <button type="button" class="btn btn-success">Create a new User</button>
 
-<!-- Display validation errors, if any -->
 @if ($errors->any())
 <div>
     <ul>
@@ -14,7 +13,6 @@
 </div>
 @endif
 
-<!-- User creation form -->
 <form action="{{ route('users.store') }}" method="POST">
     @csrf
 
