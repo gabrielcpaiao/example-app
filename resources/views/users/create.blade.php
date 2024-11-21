@@ -1,7 +1,7 @@
 @extends('layout')
 
 @section('content')
-<h1>Create New User</h1>
+<button type="button" class="btn btn-success">Create a new User</button>
 
 <!-- Display validation errors, if any -->
 @if ($errors->any())
