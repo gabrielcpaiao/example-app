@@ -1,7 +1,7 @@
 @extends('layout')
 
 @section('content')
-<button type="button" class="btn btn-success">Create a new User</button>
+<h1>New User</h1>
 
 @if ($errors->any())
 <div>
@@ -16,23 +16,26 @@
 <form action="{{ route('users.store') }}" method="POST">
     @csrf
 
-    <div>
-        <label for="name">Name:</label>
-        <input type="text" id="name" name="name" value="{{ old('name') }}" required>
+    <div class="mb-3">
+        <label for="name" class="form-label">Name:</label>
+        <input type="text" id="name" name="name" class="form-control" value="{{ old('name') }}" required>
     </div>
 
-    <div>
-        <label for="email">Email:</label>
-        <input type="email" id="email" name="email" value="{{ old('email') }}" required>
+    <div class="mb-3">
+        <label for="email" class="form-label">Email:</label>
+        <input type="email" id="email" name="email" class="form-control" value="{{ old('email') }}" required>
     </div>
 
-    <div>
-        <label for="password">Password:</label>
-        <input type="password" id="password" name="password" required>
+    <div class="mb-3">
+        <label for="password" class="form-label">Password:</label>
+        <input type="password" id="password" name="password" class="form-control" required>
     </div>
 
-    <button type="submit">Create User</button>
+    <button type="submit" class="btn btn-primary border border-dark">Create User</button>
 </form>
 
-<a href="{{ route('users.index') }}">Back to User List</a>
+<div class="d-flex flex-row-reverse">
+    <a class="btn btn-dark border border-dark align-self-left" href="{{ route('users.index') }}">Back to User List</a>
+</div>
+
 @endsection
